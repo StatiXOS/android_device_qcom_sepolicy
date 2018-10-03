@@ -1,5 +1,5 @@
 # Copyright (c) 2018, The Linux Foundation. All rights reserved.
-#
+
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
@@ -25,27 +25,20 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## usta_app
-##
-## This file defines the permissions that usta_apps can carry
+type wifilearnersvc, domain;
+type wifilearnersvc_exec, exec_type, vendor_file_type, file_type;
 
-type usta_app, domain;
+init_daemon_domain(wifilearnersvc)
+hal_server_domain(wifilearnersvc, hal_wifilearner)
 
-app_domain(usta_app)
-hal_client_domain(usta_app, hal_perf)
+#allows calls between client and server and vice-versa
+binder_call(hal_wifilearner_client, hal_wifilearner_server)
+binder_call(hal_wifilearner_server, hal_wifilearner_client)
 
-#allow only usta_app with userdebug to access ioctl
-userdebug_or_eng(`
-  allowxperm usta_app self:{ socket qipcrtr_socket } ioctl msm_sock_ipc_ioctls;
-  allow usta_app self:{ socket qipcrtr_socket } create_socket_perms;
-  allow usta_app xdsp_device:chr_file r_file_perms;
-  allow usta_app ssr_device:chr_file r_file_perms;
-')
+#allow hal clients to find the service
+allow hal_wifilearner_client hal_wifilearner_hwservice:hwservice_manager find;
 
-allow usta_app {
-  app_api_service
-  surfaceflinger_service
-}:service_manager find;
+#register hal service
+add_hwservice(hal_wifilearner, hal_wifilearner_hwservice)
 
-allow usta_app system_app_data_file:dir create_dir_perms;
-allow usta_app system_app_data_file:file create_file_perms;
+allow hal_wifilearner self:netlink_generic_socket create_socket_perms_no_ioctl;
