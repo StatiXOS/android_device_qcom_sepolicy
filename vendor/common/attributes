@@ -115,3 +115,15 @@ attribute hal_pasrmanager_server;
 attribute hal_wifilearner;
 attribute hal_wifilearner_client;
 attribute hal_wifilearner_server;
+
+attribute hal_seccam;
+attribute hal_seccam_client;
+attribute hal_seccam_server;
+
+attribute hal_cvp;
+attribute hal_cvp_client;
+attribute hal_cvp_server;
+
+attribute hal_srvctracker;
+attribute hal_srvctracker_client;
+attribute hal_srvctracker_server;

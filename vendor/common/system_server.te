@@ -168,6 +168,9 @@ hal_client_domain(system_server,hal_bluetooth);
 
 hal_client_domain(system_server, hal_perf)
 hal_client_domain(system_server, hal_sensors)
+hal_client_domain(system_server, hal_srvctracker)
+
+allow system_server hal_srvctracker_default:binder call;
 
 # allow WIGIG framework hosted in system_server to access wigig_hal
 hal_client_domain(system_server, hal_wigig)
@@ -197,6 +200,6 @@ get_prop(system_server, vendor_audio_prop)
 hal_client_domain(system_server, hal_wifilearner)
 
 #kgsl
-r_dir_file(system_server, kgsl_debugfs);
+r_dir_file(system_server, sysfs_kgsl_proc);
 
 allow system_server { system_app_data_file bluetooth_data_file nfc_data_file radio_data_file shell_data_file app_data_file }:file map;

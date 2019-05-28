@@ -97,3 +97,11 @@ set_prop(vendor_init, hvdcp_opti_prop)
 
 # Allow timezone to be overrided by vendor
 set_prop(vendor_init, exported_system_prop)
+
+allow vendor_init ipa_dev:file create_file_perms;
+
+allow vendor_init qti-manifest_exec:file entrypoint;
+allow vendor_init vendor_toolbox_exec:file rx_file_perms;
+
+# Access vendor time NTP properties
+set_prop(vendor_init, vendor_time_ntp_prop)
