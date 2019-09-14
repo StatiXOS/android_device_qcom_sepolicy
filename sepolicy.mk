@@ -12,7 +12,7 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
     $(LOCAL_PATH)/qva/private
 
-ifeq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
+ifneq (,$(filter $(UM_4_14_FAMILY), $(TARGET_BOARD_PLATFORM)))
     BOARD_SEPOLICY_DIRS += \
        $(LOCAL_PATH) \
        $(LOCAL_PATH)/generic/vendor/common \
@@ -33,9 +33,7 @@ ifeq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
         BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/generic/vendor/test
         BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/qva/vendor/test
     endif
-endif
-
-ifneq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
+else
     BOARD_SEPOLICY_DIRS += \
          $(LOCAL_PATH) \
          $(LOCAL_PATH)/legacy/vendor/common/sysmonapp \
