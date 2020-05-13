@@ -25,6 +25,16 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+dontaudit {
+    coredomain
+    appdomain
+} vendor_gles_data_file:dir search;
+
+dontaudit {
+    coredomain
+    appdomain
+} vendor_gles_data_file:file *;
+
 #allow all gpu clients to access configuration settings
 userdebug_or_eng(`
 allow {domain - coredomain - hal_configstore_default} sysfs_kgsl:dir search;
@@ -33,6 +43,8 @@ r_dir_file({domain - coredomain - hal_configstore_default}, vendor_gles_data_fil
 allow {domain - coredomain - hal_configstore_default} vendor_gles_data_file:dir create_dir_perms;
 allow {domain - coredomain - hal_configstore_default} vendor_gles_data_file:file create_file_perms;
 ')
+
+allow ephemeral_app vendor_gles_data_file:dir search;
 
 userdebug_or_eng(`
 allow {system_server
@@ -51,17 +63,20 @@ r_dir_file({system_server
  system_app
  mediaserver
  cameraserver
- surfaceflinger}, system_gles_data_file);
+ surfaceflinger
+ usta_app}, system_gles_data_file);
 
 allow {system_server
  system_app
  mediaserver
  cameraserver
- surfaceflinger} system_gles_data_file:dir create_dir_perms;
+ surfaceflinger
+ usta_app} system_gles_data_file:dir create_dir_perms;
 
 allow {system_server
  system_app
  mediaserver
  cameraserver
- surfaceflinger} system_gles_data_file:file create_file_perms;
+ surfaceflinger
+ usta_app} system_gles_data_file:file create_file_perms;
 ')
