@@ -34,12 +34,20 @@ ifeq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
     endif
 endif
 
+# sepolicy rules for product images
+PRODUCT_PUBLIC_SEPOLICY_DIRS += \
+    device/qcom/sepolicy/product/public
+
+PRODUCT_PRIVATE_SEPOLICY_DIRS += \
+    device/qcom/sepolicy/product/private
+
 ifneq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
     BOARD_SEPOLICY_DIRS += \
          device/qcom/sepolicy \
          device/qcom/sepolicy/legacy/vendor/common/sysmonapp \
          device/qcom/sepolicy/legacy/vendor/ssg \
          device/qcom/sepolicy/legacy/vendor/timeservice \
+         device/qcom/sepolicy/qva/vendor/qwesas \
          device/qcom/sepolicy/legacy/vendor/common
 
     ifeq ($(TARGET_SEPOLICY_DIR),)
