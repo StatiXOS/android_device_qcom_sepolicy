@@ -25,23 +25,23 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-type hal_keymaster_qti, domain;
-hal_server_domain(hal_keymaster_qti, hal_keymaster)
+type vendor_hal_keymaster_qti, domain;
+hal_server_domain(vendor_hal_keymaster_qti, hal_keymaster)
 
-type hal_keymaster_qti_exec, exec_type, file_type, vendor_file_type;
-init_daemon_domain(hal_keymaster_qti)
+type vendor_hal_keymaster_qti_exec, exec_type, file_type, vendor_file_type;
+init_daemon_domain(vendor_hal_keymaster_qti)
 
 # allow tee to load firmware images
-r_dir_file(hal_keymaster_qti, firmware_file)
-get_prop(hal_keymaster_qti, vendor_tee_listener_prop)
+r_dir_file(vendor_hal_keymaster_qti, firmware_file)
+get_prop(vendor_hal_keymaster_qti, vendor_tee_listener_prop)
 
 # allow access to /dev/spcom
-allow hal_keymaster_qti spcom_device:chr_file rw_file_perms;
+allow vendor_hal_keymaster_qti spcom_device:chr_file rw_file_perms;
 
 # allow access to skp
-allow hal_keymaster_qti skp_device:chr_file rw_file_perms;
+allow vendor_hal_keymaster_qti skp_device:chr_file rw_file_perms;
 
-allow hal_keymaster_qti sp_keymaster_device:chr_file rw_file_perms;
-allow hal_keymaster_qti sp_ssr_device:chr_file rw_file_perms;
+allow vendor_hal_keymaster_qti sp_keymaster_device:chr_file rw_file_perms;
+allow vendor_hal_keymaster_qti sp_ssr_device:chr_file rw_file_perms;
 
-get_prop(hal_keymaster_qti, spcomlib_prop)
+get_prop(vendor_hal_keymaster_qti, spcomlib_prop)
