@@ -26,5 +26,3 @@ PRODUCT_PRIVATE_SEPOLICY_DIRS += \
     $(SEPOLICY_PATH)/qva/product/private
 
 endif
-
--include device/statix/sepolicy/qcom/sepolicy.mk
