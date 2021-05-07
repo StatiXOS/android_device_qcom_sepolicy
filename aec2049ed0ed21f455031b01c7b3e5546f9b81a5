@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c06481e_240e483e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000061
+      },
+      "writtenOn": "2021-05-07T04:47:27Z",
+      "side": 1,
+      "message": "Compiles fine for beryllium(sdm845).",
+      "revId": "aec2049ed0ed21f455031b01c7b3e5546f9b81a5",
+      "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
+    }
+  ]
+}
