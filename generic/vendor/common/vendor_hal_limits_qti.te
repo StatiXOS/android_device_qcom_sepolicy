@@ -25,16 +25,18 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#Define Domain for Power service
-type vendor_powerservice_app, domain;
-app_domain(vendor_powerservice_app);
+type vendor_hal_limits_qti, domain;
+hal_server_domain(vendor_hal_limits_qti, vendor_hal_limits)
 
-# Allow invoking activity of vendor_powerservice_app
-allow vendor_powerservice_app activity_service:service_manager find;
-allow vendor_powerservice_app app_api_service:service_manager find;
+# Allow hwbinder call from hal client to server and vice-versa
+binder_call(vendor_hal_limits_client, vendor_hal_limits_server)
+binder_call(vendor_hal_limits_server, vendor_hal_limits_client)
 
-# Allow Power service to read vendor_pasr_prop
-get_prop(vendor_powerservice_app, vendor_pasr_prop)
+# Allow hwservice related rules
+hal_attribute_hwservice(vendor_hal_limits, vendor_hal_limits_hwservice)
 
-# allow Power service to interact with pasr memory hal
-hal_client_domain(vendor_powerservice_app, vendor_hal_pasrmanager_memory)
+type vendor_hal_limits_qti_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(vendor_hal_limits_qti)
+
+# Allow access to thermal hal
+hal_client_domain(vendor_hal_limits_qti, hal_thermal)
