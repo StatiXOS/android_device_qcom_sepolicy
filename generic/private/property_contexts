@@ -55,6 +55,8 @@ vendor.debug.mmosal.config         u:object_r:vendor_mm_osal_prop:s0
 #perf
 vendor.perf.workloadclassifier.enable      u:object_r:vendor_wlc_prop:s0
 persist.vendor.build.date.utc              u:object_r:vendor_wlc_prop:s0
+vendor.mpctl.init.complete                 u:object_r:vendor_wlc_public_prop:s0
+vendor.perf.framepacing.                   u:object_r:vendor_afp_prop:s0
 
 #mm-video
 persist.vendor.debug.av.logs.lvl          u:object_r:debug_prop:s0
@@ -74,6 +76,8 @@ persist.vendor.debug.wfdcdbgv             u:object_r:vendor_wfd_sys_debug_prop:s
 persist.vendor.sys.debug.mux.             u:object_r:vendor_wfd_sys_debug_prop:s0
 persist.vendor.sys.debug.rtp.             u:object_r:vendor_wfd_sys_debug_prop:s0
 persist.vendor.sys.debug.wfd.             u:object_r:vendor_wfd_sys_debug_prop:s0
+vendor.sys.debug.wfd.                     u:object_r:vendor_wfd_sys_debug_prop:s0
+persist.vendor.setWFDInfo.R2              u:object_r:vendor_wfd_sys_prop:s0
 
 # WIGIG
 persist.vendor.wigig.                      u:object_r:vendor_wigig_core_prop:s0
@@ -93,3 +97,6 @@ vendor.xrcb.                               u:object_r:vendor_xrcb_prop:s0
 
 # bootreceiver config props
 ro.vendor.bootreceiver.enable              u:object_r:vendor_bootreceiver_prop:s0 exact bool
+
+#Power Module
+ro.vendor.power.tuning.support             u:object_r:vendor_exported_system_prop:s0 exact bool
