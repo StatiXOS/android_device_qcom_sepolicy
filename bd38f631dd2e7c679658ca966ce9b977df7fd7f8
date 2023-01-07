@@ -16,6 +16,23 @@
       "message": "zf9 confirmed",
       "revId": "bd38f631dd2e7c679658ca966ce9b977df7fd7f8",
       "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da808395_354ba433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2023-01-07T06:57:14Z",
+      "side": 1,
+      "message": "seems fine",
+      "revId": "bd38f631dd2e7c679658ca966ce9b977df7fd7f8",
+      "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
     }
   ]
 }
