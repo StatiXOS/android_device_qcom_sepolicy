@@ -16,6 +16,23 @@
       "message": "works on zf9",
       "revId": "cce680d96972628cc362323828144c1e385e98b2",
       "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b522d5_e85d9afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000125
+      },
+      "writtenOn": "2023-01-07T06:56:28Z",
+      "side": 1,
+      "message": "seems fine on Venus",
+      "revId": "cce680d96972628cc362323828144c1e385e98b2",
+      "serverId": "039621b9-0c7c-40f3-867c-684f4bc911d6"
     }
   ]
 }
